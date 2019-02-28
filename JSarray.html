@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+ <html>
+ <body>
+ <button id="criarArray">Clique aqui para criar um array com os meses</button><br><br>
+ <button id="listarArray">Clique aqui para listar todos os meses</button><br><br>
+ <button id="listarPares">Clique aqui para listar os meses pares</button><br><br>
+ <button id="deletarArray">Clique aqui para deletar todos os meses do array</button>
+ <p id="listar"></p>
+
+
+ <script>
+     //var meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+    var meses = [];
+    $listar = document.getElementById('listar');
+    
+    var $criarArray = document.getElementById('criarArray');
+    $criarArray.addEventListener('click',criarArray);
+
+    var $listarArray = document.getElementById('listarArray');
+    $listarArray.addEventListener('click', listarArray);
+
+    var $listarPares = document.getElementById('listarPares');
+    $listarPares.addEventListener('click', numerosPares);
+
+    var $deletarArray = document.getElementById('deletarArray');
+    $deletarArray.addEventListener('click', deletarArray);
+
+    function criarArray(){
+          x=1;
+    for(x=1; x<=12; x++){
+        switch(x){
+            case 1 : meses[x] = "Janeiro";
+            break;
+            case 2 : meses[x] = "Fevereiro";
+            break;
+            case 3 : meses[x] = "Março";
+            break;
+            case 4 : meses[x] = "Abril";
+            break;
+            case 5 : meses[x] = "Maio";
+            break;
+            case 6 : meses[x] = "Junho";
+            break;
+            case 7 : meses[x] = "Julho";
+            break;
+            case 8 : meses[x] = "Agosto";
+            break;
+            case 9 : meses[x] = "Setembro";
+            break;
+            case 10 : meses[x] = "Outubro";
+            break;
+            case 11 : meses[x] = "Novembro";
+            break;
+            case 12 : meses[x] = "Dezembro";
+            break;
+        }
+    }
+
+    console.log("Array criado.");
+    }
+
+    function listarArray(){
+        if(meses.length === 0){
+            alert("Primeiro criar o array!");
+        }else{
+            $listar.innerHTML = "";
+        i=1;
+        
+        for(i=1; i<meses.length; i++){
+            $listar.innerHTML += meses[i] + "<br>";
+           // console.log(i);
+         //console.log(meses[i]);
+            }
+
+        }
+        
+     }
+ 
+    function numerosPares(){
+        $listar.innerHTML = "";
+        a=1;
+        if(meses.length === 0){
+            alert("Primeiro criar o array!");
+        }else{
+        for(a=1;a<meses.length;a++){
+        if(a % 2 == 0){
+            $listar.innerHTML += meses[a] + "<br>";
+
+            }
+         //   console.log(a);
+         //   console.log(meses[a]);
+         }
+        }
+
+    }
+   
+
+    function deletarArray(){
+        
+        i = 1;
+        var vet = meses.length;
+        if(meses.length === 0){
+            alert("Primeiro criar o array!");
+        }else{
+            var confirmar = confirm("Deseja deletar o array?")
+            if(confirmar){
+                for(i=1;i<=vet; i++){
+                 meses.pop();
+            }
+            $listar.innerHTML = "";
+            alert("Array deletado!!");
+            console.log("Array deletado.")
+            }
+
+           
+        }
+
+    }
+
+ 
+ </script>
+ </body>
+ </html>
